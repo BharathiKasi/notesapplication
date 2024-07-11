@@ -1,0 +1,23 @@
+
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+@
+build.gradle.kts,d/b/dbcff70658daf80b53ce624f6adcaa529df5ed8d
+D
+app/build.gradle.kts,d/2/d2a4383452aad84a18429a5844d31330a012a9e6
+I
+gradle/libs.versions.toml,d/7/d7595319a0658be6f1ed500ad590d42e4b28bc4f
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
+C
+settings.gradle.kts,7/4/749edfcc96398253e5b3416184e95c46621da850
+@
+local.properties,0/7/0712df971a99ac4d2fccb8e0fb19f377f3374cca
+w
+Gapp/src/main/java/com/bharathi/notesapp/ui/loginscreen/LoginScreenUI.kt,0/1/019056fb1cb38b993bf301a6bb02fac9f6765695
+h
+8app/src/main/java/com/bharathi/notesapp/LoginActivity.kt,d/d/dd89925de53686c127fda5f889ca272313b7e12e
+y
+Iapp/src/main/java/com/bharathi/notesapp/ui/splashscreen/SplashScreenUI.kt,6/b/6b253489b9781ccd326dd024fda60a09b5c4be5a
+i
+9app/src/main/java/com/bharathi/notesapp/ui/theme/Color.kt,f/a/fa57a5d785bf5473d63013f140aae12f8e28dacd
