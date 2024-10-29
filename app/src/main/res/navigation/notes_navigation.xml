@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/note_navigation"
+    app:startDestination="@id/splashFragment"
+    >
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.bharathi.notesapp.LoginFragment"
+        android:label="LoginFragment"
+        >
+        <action android:id="@+id/action_loginFragment_to_allNotesFragment"
+            app:destination="@id/allNotesFragment"
+            />
+    </fragment>
+    <fragment android:id="@+id/allNotesFragment"
+        android:name="com.bharathi.notesapp.ui.compose.allnotes.fragment.AllNotesFragment"
+        android:label="AllNotesFragment"
+        >
+        <action android:id="@+id/action_allNotesFragment_to_AddNoteFragment"
+            app:enterAnim="@anim/slide_in_right_anim"
+            app:exitAnim="@anim/slide_out_left_anim"
+            app:popEnterAnim="@anim/slide_in_left_anim"
+            app:destination="@+id/addNoteFragment"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.bharathi.notesapp.SplashFragment"
+        android:label="SplashFragment"
+        >
+        <action
+            android:id="@+id/action_splashFragment_to_LoginFragment"
+            app:destination="@id/loginFragment"
+            />
+        <action
+            android:id="@+id/action_splashFragment_AllNotesFragment"
+            app:destination="@id/allNotesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFragment"
+        android:name="com.bharathi.notesapp.ui.compose.AddNote.fragment.AddNoteFragment"
+        android:label="AddNoteFragment"
+        >
+
+    </fragment>
+
+
+
+
+</navigation>

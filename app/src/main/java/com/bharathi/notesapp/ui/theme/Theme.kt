@@ -8,6 +8,7 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
@@ -54,4 +55,12 @@ fun NotesAppTheme(
         typography = Typography,
         content = content
     )
+}
+
+fun ComposeView.setMaterialContentView(contentView:@Composable () -> Unit){
+    setContent {
+        NotesAppTheme {
+            contentView()
+        }
+    }
 }

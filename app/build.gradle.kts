@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.navigation)
+    alias(libs.plugins.baselineprofile)
 }
 
 android {
@@ -30,23 +32,23 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_19
+        targetCompatibility = JavaVersion.VERSION_19
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "19"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
-    packaging {
+    /*packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
-    }
+    }*/
 }
 
 dependencies {
@@ -65,11 +67,22 @@ dependencies {
     implementation(libs.splash.screen)
     implementation(libs.bundles.credential.manager.libs)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.datastore.core.android)
+    implementation(libs.activity.ktx)
+    implementation(libs.preference.data.store)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.navigation.compose)
+    //implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.profileinstaller)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    implementation(libs.androidx.profileinstaller)
+    baselineProfile(project(":baselineprofile"))
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    debugImplementation(libs.leak.canary)
 }

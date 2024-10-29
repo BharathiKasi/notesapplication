@@ -16,23 +16,31 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.bharathi.notesapp.R
+import com.bharathi.notesapp.data.PreferenceRepo
 import com.bharathi.notesapp.ui.theme.splasBgColor
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navigate: () -> Unit) {
+fun SplashScreen(navigateMainPage: () -> Unit, navigateLoginScreen: () -> Unit, dataStorePreference: PreferenceRepo) {
     val alpha = remember {
         Animatable(initialValue = 0F)
     }
     LaunchedEffect(key1 = true){
         delay(2000)
         alpha.animateTo(targetValue = 1f, animationSpec = tween(1500))
-        navigate()
+        dataStorePreference.isLoggedIn.collect{
+            if(it){
+                navigateMainPage()
+            } else{
+                navigateLoginScreen()
+            }
+        }
     }
 
     Box(
@@ -67,7 +75,5 @@ fun SplashScreen(navigate: () -> Unit) {
 @Preview
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(){
-
-    }
+    SplashScreen(navigateLoginScreen = {}, navigateMainPage = {}, dataStorePreference = PreferenceRepo.getInstance(LocalContext.current))
 }
